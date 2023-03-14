@@ -15,9 +15,9 @@ void DeletMatix(int **);
 
 int main()
 {
-    int **A1 = new int *[M];
-    int **A2 = new int *[M];
-    int **A3 = new int *[M];
+    int **A1 = new int *[N];
+    int **A2 = new int *[N];
+    int **A3 = new int *[N];
     InitMatix(A1, true);
     InitMatix(A2, true);
     InitMatix(A3, false);
