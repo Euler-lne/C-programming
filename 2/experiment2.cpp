@@ -13,10 +13,8 @@ int main()
 }
 void InitCircular()
 {
-    cout << "";
+    cout << "" << endl;
 }
-
-
 
 // 不写拷贝构造函数也可以正常运行，为什么？
 // 因为系统会自动调用浅拷贝构造函数
