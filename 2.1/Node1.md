@@ -1,4 +1,4 @@
-* <font face="KaiTi">对于构造一个圆的类来说，初始化构造，是传入一个点的两个坐标和半径还是传入一个点和半径
+* 对于构造一个圆的类来说，初始化构造，是传入一个点的两个坐标和半径还是传入一个点和半径
 ```Cpp
 Circular(Point A, double radius);
 Circular(double x, double y, double radius);
@@ -12,5 +12,3 @@ Circular::Circular(double radius, Point center)
     // 执行完成之后就会释放Point的内存，也就是调用析构函数
 }
 ```
-
-</font>
