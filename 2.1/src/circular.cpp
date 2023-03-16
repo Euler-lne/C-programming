@@ -6,8 +6,8 @@ using namespace std;
 Circular::Circular(double radius, Point center)
 {
     this->radius = radius;
-    this->center = center; // 这里可能有问题
-    //执行完成之后就会释放center的内存
+    this->center = center;  // 这里 = 有何问题？
+    // 执行完成之后就会释放Point的内存，也就是调用析构函数
 }
 Circular::~Circular()
 {

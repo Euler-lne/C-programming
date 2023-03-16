@@ -7,12 +7,14 @@ Point::Point(double x, double y)
 {
     this->x = x;
     this->y = y;
+    cout << "Point Init 1" << endl;
 }
 
 Point::Point()
 {
     this->x = 0.0;
     this->y = 0.0;
+    cout << "Point Init 2" << endl;
 }
 
 Point::~Point()
@@ -25,6 +27,7 @@ Point::Point(const Point &A)
 {
     this->x = A.x;
     this->y = A.y;
+    cout << "Point copy" << endl;
 }
 
 double Point::DistanceOfPoints(Point A)
