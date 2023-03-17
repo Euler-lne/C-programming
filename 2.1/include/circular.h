@@ -9,6 +9,7 @@ private:
 
 public:
     Circular(double, Point);
+    Circular(const Circular &);
     ~Circular();
     void ShowCircular();
     bool IsIntersect(Circular);
