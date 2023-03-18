@@ -1,7 +1,8 @@
-#include<iostream>
+#include "game.h"
 using namespace std;
 int main()
 {
-    cout << "hello world" << endl;
+    Game game;
+    game.Init();
     return 0;
 }
