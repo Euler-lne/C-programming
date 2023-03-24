@@ -24,6 +24,7 @@ bool Circular::IsIntersect(Circular other)
 {
     // 相交条件 r1 - r2 <= d <= r1 + r2
     bool key;
+    // 注意两个浮点数相等的情况
     double distance = this->center.DistanceOfPoints(other.center);
     if (fabs(this->radius - other.radius) <= distance && distance <= this->radius + other.radius)
         key = true;
