@@ -61,7 +61,7 @@ int Matrix::ChangeItem(int _line, int _row, int _value)
     }
 }
 /// @brief 重载等号
-/// @param A 
+/// @param A 引用传递
 /// @return 返回等号后的指
 Matrix &Matrix::operator=(const Matrix &A)
 {
@@ -78,6 +78,10 @@ Matrix &Matrix::operator=(const Matrix &A)
     }
     return *this;
 }
+/// @brief 重构加法会调用析构函数，因为里面调用了构造函数
+/// @param A 引用传递
+/// @param B 引用传递
+/// @return 返回相加的值
 Matrix operator+(const Matrix &A, const Matrix &B)
 {
     Matrix answer(A.GetLines(), A.GetRows());
@@ -95,6 +99,10 @@ Matrix operator+(const Matrix &A, const Matrix &B)
     }
     return answer;
 }
+/// @brief 重构加法会调用析构函数，因为里面调用了构造函数
+/// @param A 引用传递
+/// @param B 引用传递
+/// @return 返回相减的值
 Matrix operator-(const Matrix &A, const Matrix &B)
 {
     Matrix answer(A.GetLines(), A.GetRows());
@@ -112,6 +120,7 @@ Matrix operator-(const Matrix &A, const Matrix &B)
     }
     return answer;
 }
+/// @brief 初始化矩阵
 void Matrix::InitMatrix()
 {
     this->matirx = new int *[this->lines];
@@ -124,6 +133,7 @@ void Matrix::InitMatrix()
         }
     }
 }
+/// @brief 删除矩阵
 void Matrix::DeleteMatrix()
 {
     for (int i = 0; i < this->lines; i++)
