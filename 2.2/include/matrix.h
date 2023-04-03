@@ -1,5 +1,7 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
+#define CHANGE_ERROR_ 1
+#define _OK_ 2
 class Matrix
 {
 public:
@@ -8,8 +10,9 @@ public:
     ~Matrix();
     int GetLines() const { return this->lines; }
     int GetRows() const { return this->rows; }
+    int GetValue(int _line, int _row) const {return this->matirx[_line][_row];}
     void ShowMatrix();
-    void ChangeItem(int, int, int);
+    int ChangeItem(int _line, int _row, int _value);
     Matrix& operator=(const Matrix &);
     friend Matrix operator+(const Matrix &, const Matrix &);
     friend Matrix operator-(const Matrix &, const Matrix &);
