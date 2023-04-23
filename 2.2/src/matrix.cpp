@@ -60,21 +60,24 @@ int Matrix::ChangeItem(int _line, int _row, int _value)
         return CHANGE_ERROR_;
     }
 }
-/// @brief 重载等号
+/// @brief 重载等号，要考虑到行类不一样的情况，不一样需要强制赋值
 /// @param A 引用传递
 /// @return 返回等号后的指
-Matrix &Matrix::operator=(const Matrix &A)
+Matrix &Matrix::operator=(const Matrix &_other)
 {
-    bool key = false;
-    // 只有满足情况才可以进行等号赋值
-    if (A.GetLines() == this->lines && A.GetRows() == this->rows)
-        key = true;
-    for (int i = 0; i < A.GetLines() && key; i++)
+    if(this == &_other)
     {
-        for (int j = 0; j < A.GetRows(); j++)
-        {
-            this->matirx[i][j] = A.GetValue(i, j);
-        }
+        return *this;
+    }
+    // 要考虑到行类不一样的情况，不一样需要强制赋值
+    this->DeleteMatrix();
+    this->lines = _other.GetLines();
+    this->rows = _other.GetRows();
+    this->InitMatrix();
+    for (int i = 0; i < lines;i++)
+    {
+        for (int j = 0; j < rows;j++)
+            matirx[i][j] = _other.matirx[i][j];
     }
     return *this;
 }
