@@ -17,3 +17,55 @@
 * （7） 初始化 pA1、pA2；
 * （8） 计算并输出 pA3=pA1 加 pA2，pA3=pA1 减 pA2；
 * （9） 释放 pA1、pA2、pA3。
+# 注意
+* delete
+```CPP
+// delete不能用, delete pA, pB;
+delete pA;
+delete pB;
+```
+* 重载等于号
+```CPP
+/// @brief 重载等号
+/// @param A 引用传递
+/// @return 返回等号后的指
+Matrix &Matrix::operator=(const Matrix &A)
+{
+    bool key = false;
+    // 只有满足情况才可以进行等号赋值
+    if (A.GetLines() == this->lines && A.GetRows() == this->rows)
+        key = true;
+    for (int i = 0; i < A.GetLines() && key; i++)
+    {
+        for (int j = 0; j < A.GetRows(); j++)
+        {
+            this->matirx[i][j] = A.GetValue(i, j);
+        }
+    }
+    return *this;
+}
+```
+* 重载加法
+```CPP
+/// @brief 重构加法会调用析构函数，因为里面调用了构造函数
+/// @param A 引用传递
+/// @param B 引用传递
+/// @return 返回相加的值
+Matrix operator+(const Matrix &A, const Matrix &B)
+{
+    Matrix answer(A.GetLines(), A.GetRows());
+    if(A.GetLines()!=B.GetLines()||A.GetRows()!=B.GetRows())
+    {
+        cout << "Error, The two matrix rows and columns are not the same." << endl;
+        return answer;
+    }
+    for (int i = 0; i < A.lines; i++)
+    {
+        for (int j = 0; j < A.rows; j++)
+        {
+            answer.matirx[i][j] = A.matirx[i][j] + B.matirx[i][j];
+        }
+    }
+    return answer;
+}
+```
